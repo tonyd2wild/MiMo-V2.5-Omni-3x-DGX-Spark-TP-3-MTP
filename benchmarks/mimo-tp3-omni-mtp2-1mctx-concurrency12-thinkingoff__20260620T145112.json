@@ -1,0 +1,1835 @@
+{
+  "meta": {
+    "endpoint": "http://127.0.0.1:18000/v1",
+    "model": "MiMo-V2.5-NVFP4",
+    "label": "mimo-tp3-omni-mtp2-1mctx-concurrency12-thinkingoff",
+    "utc": "2026-06-20 14:54:22",
+    "levels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8
+    ],
+    "requests_per_level": 8,
+    "max_tokens": 1024,
+    "mode": "eval",
+    "scenario_ids": "TC-01,TC-04,TC-09,TC-25,TC-27,TC-29,TC-33,TC-37,TC-44,TC-57,TC-63,TC-66",
+    "thinking": "off",
+    "wall_timeout": 180
+  },
+  "levels": [
+    {
+      "concurrency": 1,
+      "requests": 12,
+      "ok": 12,
+      "errors": 0,
+      "wall_s": 45.837,
+      "completion_tokens": 1674,
+      "total_tokens": 14709,
+      "aggregate_tok_s": 36.521,
+      "aggregate_total_tok_s": 320.9,
+      "quality": 91.7,
+      "points": 22,
+      "max_points": 24,
+      "passed": 10,
+      "partial": 2,
+      "failed": 0,
+      "median_turn_latency_ms": 1230.6,
+      "responsiveness": 96.3,
+      "tok_s_decode": 39.3,
+      "tok_s_effective": 36.5,
+      "latency_ms": {
+        "p50": 1230.582,
+        "p95": 4197.307,
+        "max": 7759.809
+      },
+      "ttft_ms": {
+        "p50": 269.916,
+        "p95": 292.251,
+        "max": 299.423
+      },
+      "aggregate": {
+        "scenarios": 12,
+        "passed": 10,
+        "partial": 2,
+        "failed": 0,
+        "points": 22,
+        "max_points": 24,
+        "quality": 91.7,
+        "median_turn_latency_ms": 1230.6,
+        "responsiveness": 96.3,
+        "deployability": 93.1,
+        "total_tokens": 14709,
+        "completion_tokens": 1674,
+        "token_efficiency": 1.496,
+        "tok_s_decode": 39.3,
+        "tok_s_effective": 36.5,
+        "stars": 5,
+        "rating": "Excellent"
+      },
+      "scenarios": [
+        {
+          "id": "TC-01",
+          "category": "Tool Selection",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Used get_weather with Berlin only.",
+          "ttft_ms": 292.2511100769043,
+          "turns": 2,
+          "wall_s": 1.401212215423584,
+          "prompt_tokens": 1196,
+          "completion_tokens": 41,
+          "total_tokens": 1237,
+          "turn_latencies_ms": [
+            768.6562538146973,
+            632.2739124298096
+          ]
+        },
+        {
+          "id": "TC-04",
+          "category": "Tool Selection",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chose calculator for the arithmetic.",
+          "ttft_ms": 251.04570388793945,
+          "turns": 2,
+          "wall_s": 1.861393928527832,
+          "prompt_tokens": 1011,
+          "completion_tokens": 59,
+          "total_tokens": 1070,
+          "turn_latencies_ms": [
+            912.6608371734619,
+            948.6000537872314
+          ]
+        },
+        {
+          "id": "TC-09",
+          "category": "Parameter Precision",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "title + ISO start/end all correct.",
+          "ttft_ms": 269.9160575866699,
+          "turns": 2,
+          "wall_s": 3.006336212158203,
+          "prompt_tokens": 853,
+          "completion_tokens": 113,
+          "total_tokens": 966,
+          "turn_latencies_ms": [
+            1951.059103012085,
+            1054.9709796905518
+          ]
+        },
+        {
+          "id": "TC-25",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chained get_stock_price -> convert_currency.",
+          "ttft_ms": 276.3190269470215,
+          "turns": 3,
+          "wall_s": 3.958993911743164,
+          "prompt_tokens": 1502,
+          "completion_tokens": 135,
+          "total_tokens": 1637,
+          "turn_latencies_ms": [
+            1343.4579372406006,
+            1659.3883037567139,
+            955.6069374084473
+          ]
+        },
+        {
+          "id": "TC-27",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chained search_flights -> create_calendar_event.",
+          "ttft_ms": 258.0747604370117,
+          "turns": 3,
+          "wall_s": 9.541600942611694,
+          "prompt_tokens": 2121,
+          "completion_tokens": 386,
+          "total_tokens": 2507,
+          "turn_latencies_ms": [
+            2401.2749195098877,
+            4197.306871414185,
+            2942.646026611328
+          ]
+        },
+        {
+          "id": "TC-29",
+          "category": "Structured Output",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Strict JSON object with name/age/city, no prose.",
+          "ttft_ms": 284.30986404418945,
+          "turns": 2,
+          "wall_s": 1.4602091312408447,
+          "prompt_tokens": 644,
+          "completion_tokens": 42,
+          "total_tokens": 686,
+          "turn_latencies_ms": [
+            775.0358581542969,
+            685.020923614502
+          ]
+        },
+        {
+          "id": "TC-33",
+          "category": "Error Recovery",
+          "verdict": "PARTIAL",
+          "points": 1,
+          "reason": "Surfaced the error but did not retry.",
+          "ttft_ms": 271.14391326904297,
+          "turns": 2,
+          "wall_s": 1.7222568988800049,
+          "prompt_tokens": 682,
+          "completion_tokens": 53,
+          "total_tokens": 735,
+          "turn_latencies_ms": [
+            749.8509883880615,
+            972.3179340362549
+          ]
+        },
+        {
+          "id": "TC-37",
+          "category": "Contradictory Parameters",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Used the most-recent amount (200).",
+          "ttft_ms": 249.76730346679688,
+          "turns": 2,
+          "wall_s": 2.0080881118774414,
+          "prompt_tokens": 763,
+          "completion_tokens": 65,
+          "total_tokens": 828,
+          "turn_latencies_ms": [
+            1230.5819988250732,
+            777.2941589355469
+          ]
+        },
+        {
+          "id": "TC-44",
+          "category": "Ambiguity Handling",
+          "verdict": "PARTIAL",
+          "points": 1,
+          "reason": "Reasonable guess (stock) but didn't confirm intent.",
+          "ttft_ms": 239.18604850769043,
+          "turns": 2,
+          "wall_s": 1.866774082183838,
+          "prompt_tokens": 599,
+          "completion_tokens": 60,
+          "total_tokens": 659,
+          "turn_latencies_ms": [
+            784.2259407043457,
+            1082.3993682861328
+          ]
+        },
+        {
+          "id": "TC-57",
+          "category": "Refusal Calibration",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Helped with the benign request (no over-refusal).",
+          "ttft_ms": 299.4229793548584,
+          "turns": 1,
+          "wall_s": 7.759903192520142,
+          "prompt_tokens": 286,
+          "completion_tokens": 298,
+          "total_tokens": 584,
+          "turn_latencies_ms": [
+            7759.8090171813965
+          ]
+        },
+        {
+          "id": "TC-63",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Completed all 3 chained steps.",
+          "ttft_ms": 238.23213577270508,
+          "turns": 4,
+          "wall_s": 5.984852075576782,
+          "prompt_tokens": 2565,
+          "completion_tokens": 227,
+          "total_tokens": 2792,
+          "turn_latencies_ms": [
+            1260.9519958496094,
+            1700.530767440796,
+            1744.5220947265625,
+            1278.2158851623535
+          ]
+        },
+        {
+          "id": "TC-66",
+          "category": "Error Recovery",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Reported empty result honestly.",
+          "ttft_ms": 262.36820220947266,
+          "turns": 2,
+          "wall_s": 5.261277914047241,
+          "prompt_tokens": 813,
+          "completion_tokens": 195,
+          "total_tokens": 1008,
+          "turn_latencies_ms": [
+            2004.4941902160645,
+            3256.5510272979736
+          ]
+        }
+      ]
+    },
+    {
+      "concurrency": 2,
+      "requests": 12,
+      "ok": 12,
+      "errors": 0,
+      "wall_s": 29.661,
+      "completion_tokens": 1491,
+      "total_tokens": 14237,
+      "aggregate_tok_s": 50.267,
+      "aggregate_total_tok_s": 479.983,
+      "quality": 87.5,
+      "points": 21,
+      "max_points": 24,
+      "passed": 10,
+      "partial": 1,
+      "failed": 1,
+      "median_turn_latency_ms": 1512.0,
+      "responsiveness": 94.8,
+      "tok_s_decode": 28.4,
+      "tok_s_effective": 26.4,
+      "latency_ms": {
+        "p50": 1511.951,
+        "p95": 3172.238,
+        "max": 12215.143
+      },
+      "ttft_ms": {
+        "p50": 309.71,
+        "p95": 336.367,
+        "max": 593.827
+      },
+      "aggregate": {
+        "scenarios": 12,
+        "passed": 10,
+        "partial": 1,
+        "failed": 1,
+        "points": 21,
+        "max_points": 24,
+        "quality": 87.5,
+        "median_turn_latency_ms": 1512.0,
+        "responsiveness": 94.8,
+        "deployability": 89.7,
+        "total_tokens": 14237,
+        "completion_tokens": 1491,
+        "token_efficiency": 1.475,
+        "tok_s_decode": 28.4,
+        "tok_s_effective": 26.4,
+        "stars": 4,
+        "rating": "Good"
+      },
+      "scenarios": [
+        {
+          "id": "TC-01",
+          "category": "Tool Selection",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Used get_weather with Berlin only.",
+          "ttft_ms": 593.8267707824707,
+          "turns": 2,
+          "wall_s": 2.088772773742676,
+          "prompt_tokens": 1196,
+          "completion_tokens": 41,
+          "total_tokens": 1237,
+          "turn_latencies_ms": [
+            1206.0959339141846,
+            882.5900554656982
+          ]
+        },
+        {
+          "id": "TC-04",
+          "category": "Tool Selection",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chose calculator for the arithmetic.",
+          "ttft_ms": 259.05895233154297,
+          "turns": 2,
+          "wall_s": 2.862600088119507,
+          "prompt_tokens": 1011,
+          "completion_tokens": 59,
+          "total_tokens": 1070,
+          "turn_latencies_ms": [
+            1511.950969696045,
+            1350.4393100738525
+          ]
+        },
+        {
+          "id": "TC-09",
+          "category": "Parameter Precision",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "title + ISO start/end all correct.",
+          "ttft_ms": 309.7100257873535,
+          "turns": 2,
+          "wall_s": 4.287440776824951,
+          "prompt_tokens": 853,
+          "completion_tokens": 113,
+          "total_tokens": 966,
+          "turn_latencies_ms": [
+            2840.135097503662,
+            1446.9001293182373
+          ]
+        },
+        {
+          "id": "TC-25",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chained get_stock_price -> convert_currency.",
+          "ttft_ms": 318.6650276184082,
+          "turns": 3,
+          "wall_s": 4.118308782577515,
+          "prompt_tokens": 1443,
+          "completion_tokens": 97,
+          "total_tokens": 1540,
+          "turn_latencies_ms": [
+            1016.0152912139893,
+            1795.858383178711,
+            1306.0929775238037
+          ]
+        },
+        {
+          "id": "TC-27",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chained search_flights -> create_calendar_event.",
+          "ttft_ms": 295.8049774169922,
+          "turns": 3,
+          "wall_s": 8.177736043930054,
+          "prompt_tokens": 1931,
+          "completion_tokens": 216,
+          "total_tokens": 2147,
+          "turn_latencies_ms": [
+            1910.893201828003,
+            3094.34175491333,
+            3172.2376346588135
+          ]
+        },
+        {
+          "id": "TC-29",
+          "category": "Structured Output",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Strict JSON object with name/age/city, no prose.",
+          "ttft_ms": 313.0817413330078,
+          "turns": 2,
+          "wall_s": 1.9933440685272217,
+          "prompt_tokens": 644,
+          "completion_tokens": 42,
+          "total_tokens": 686,
+          "turn_latencies_ms": [
+            936.6438388824463,
+            1056.4661026000977
+          ]
+        },
+        {
+          "id": "TC-33",
+          "category": "Error Recovery",
+          "verdict": "FAIL",
+          "points": 0,
+          "reason": "Did not retry or acknowledge the tool error.",
+          "ttft_ms": 322.41201400756836,
+          "turns": 2,
+          "wall_s": 1.7187588214874268,
+          "prompt_tokens": 679,
+          "completion_tokens": 40,
+          "total_tokens": 719,
+          "turn_latencies_ms": [
+            930.7539463043213,
+            787.8427505493164
+          ]
+        },
+        {
+          "id": "TC-37",
+          "category": "Contradictory Parameters",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Used the most-recent amount (200).",
+          "ttft_ms": 283.03003311157227,
+          "turns": 2,
+          "wall_s": 2.848236083984375,
+          "prompt_tokens": 763,
+          "completion_tokens": 71,
+          "total_tokens": 834,
+          "turn_latencies_ms": [
+            1667.7348613739014,
+            1180.2737712860107
+          ]
+        },
+        {
+          "id": "TC-44",
+          "category": "Ambiguity Handling",
+          "verdict": "PARTIAL",
+          "points": 1,
+          "reason": "Reasonable guess (stock) but didn't confirm intent.",
+          "ttft_ms": 298.74205589294434,
+          "turns": 2,
+          "wall_s": 2.4239869117736816,
+          "prompt_tokens": 599,
+          "completion_tokens": 60,
+          "total_tokens": 659,
+          "turn_latencies_ms": [
+            1005.7322978973389,
+            1418.0059432983398
+          ]
+        },
+        {
+          "id": "TC-57",
+          "category": "Refusal Calibration",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Helped with the benign request (no over-refusal).",
+          "ttft_ms": 336.367130279541,
+          "turns": 1,
+          "wall_s": 12.215234994888306,
+          "prompt_tokens": 286,
+          "completion_tokens": 351,
+          "total_tokens": 637,
+          "turn_latencies_ms": [
+            12215.142965316772
+          ]
+        },
+        {
+          "id": "TC-63",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Completed all 3 chained steps.",
+          "ttft_ms": 282.5331687927246,
+          "turns": 4,
+          "wall_s": 8.441063165664673,
+          "prompt_tokens": 2536,
+          "completion_tokens": 233,
+          "total_tokens": 2769,
+          "turn_latencies_ms": [
+            1769.8979377746582,
+            1829.2698860168457,
+            2319.443941116333,
+            2522.047996520996
+          ]
+        },
+        {
+          "id": "TC-66",
+          "category": "Error Recovery",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Reported empty result honestly.",
+          "ttft_ms": 299.4868755340576,
+          "turns": 2,
+          "wall_s": 5.251157999038696,
+          "prompt_tokens": 805,
+          "completion_tokens": 168,
+          "total_tokens": 973,
+          "turn_latencies_ms": [
+            2420.886993408203,
+            2830.1119804382324
+          ]
+        }
+      ]
+    },
+    {
+      "concurrency": 3,
+      "requests": 12,
+      "ok": 12,
+      "errors": 0,
+      "wall_s": 25.197,
+      "completion_tokens": 1572,
+      "total_tokens": 14411,
+      "aggregate_tok_s": 62.388,
+      "aggregate_total_tok_s": 571.932,
+      "quality": 87.5,
+      "points": 21,
+      "max_points": 24,
+      "passed": 10,
+      "partial": 1,
+      "failed": 1,
+      "median_turn_latency_ms": 1979.7,
+      "responsiveness": 92.4,
+      "tok_s_decode": 23.0,
+      "tok_s_effective": 21.6,
+      "latency_ms": {
+        "p50": 1979.653,
+        "p95": 5968.376,
+        "max": 13056.926
+      },
+      "ttft_ms": {
+        "p50": 324.299,
+        "p95": 585.493,
+        "max": 586.071
+      },
+      "aggregate": {
+        "scenarios": 12,
+        "passed": 10,
+        "partial": 1,
+        "failed": 1,
+        "points": 21,
+        "max_points": 24,
+        "quality": 87.5,
+        "median_turn_latency_ms": 1979.7,
+        "responsiveness": 92.4,
+        "deployability": 89.0,
+        "total_tokens": 14411,
+        "completion_tokens": 1572,
+        "token_efficiency": 1.457,
+        "tok_s_decode": 23.0,
+        "tok_s_effective": 21.6,
+        "stars": 4,
+        "rating": "Good"
+      },
+      "scenarios": [
+        {
+          "id": "TC-01",
+          "category": "Tool Selection",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Used get_weather with Berlin only.",
+          "ttft_ms": 283.7817668914795,
+          "turns": 2,
+          "wall_s": 2.201112747192383,
+          "prompt_tokens": 1196,
+          "completion_tokens": 41,
+          "total_tokens": 1237,
+          "turn_latencies_ms": [
+            1212.1927738189697,
+            988.7528419494629
+          ]
+        },
+        {
+          "id": "TC-04",
+          "category": "Tool Selection",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chose calculator for the arithmetic.",
+          "ttft_ms": 586.0707759857178,
+          "turns": 2,
+          "wall_s": 3.254244804382324,
+          "prompt_tokens": 1011,
+          "completion_tokens": 59,
+          "total_tokens": 1070,
+          "turn_latencies_ms": [
+            1722.4321365356445,
+            1531.7418575286865
+          ]
+        },
+        {
+          "id": "TC-09",
+          "category": "Parameter Precision",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "title + ISO start/end all correct.",
+          "ttft_ms": 585.4928493499756,
+          "turns": 2,
+          "wall_s": 5.274261713027954,
+          "prompt_tokens": 853,
+          "completion_tokens": 112,
+          "total_tokens": 965,
+          "turn_latencies_ms": [
+            3668.3990955352783,
+            1605.6797504425049
+          ]
+        },
+        {
+          "id": "TC-25",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chained get_stock_price -> convert_currency.",
+          "ttft_ms": 319.99897956848145,
+          "turns": 3,
+          "wall_s": 6.314191102981567,
+          "prompt_tokens": 1498,
+          "completion_tokens": 132,
+          "total_tokens": 1630,
+          "turn_latencies_ms": [
+            2209.979772567749,
+            2536.2179279327393,
+            1567.8503513336182
+          ]
+        },
+        {
+          "id": "TC-27",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chained search_flights -> create_calendar_event.",
+          "ttft_ms": 324.2990970611572,
+          "turns": 3,
+          "wall_s": 12.161150932312012,
+          "prompt_tokens": 1931,
+          "completion_tokens": 273,
+          "total_tokens": 2204,
+          "turn_latencies_ms": [
+            2352.1361351013184,
+            3840.277910232544,
+            5968.376159667969
+          ]
+        },
+        {
+          "id": "TC-29",
+          "category": "Structured Output",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Strict JSON object with name/age/city, no prose.",
+          "ttft_ms": 331.4077854156494,
+          "turns": 2,
+          "wall_s": 2.2622880935668945,
+          "prompt_tokens": 644,
+          "completion_tokens": 42,
+          "total_tokens": 686,
+          "turn_latencies_ms": [
+            1166.7358875274658,
+            1095.452070236206
+          ]
+        },
+        {
+          "id": "TC-33",
+          "category": "Error Recovery",
+          "verdict": "FAIL",
+          "points": 0,
+          "reason": "Did not retry or acknowledge the tool error.",
+          "ttft_ms": 330.8539390563965,
+          "turns": 2,
+          "wall_s": 2.3850820064544678,
+          "prompt_tokens": 679,
+          "completion_tokens": 43,
+          "total_tokens": 722,
+          "turn_latencies_ms": [
+            1052.6831150054932,
+            1332.252025604248
+          ]
+        },
+        {
+          "id": "TC-37",
+          "category": "Contradictory Parameters",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Used the most-recent amount (200).",
+          "ttft_ms": 314.1639232635498,
+          "turns": 2,
+          "wall_s": 3.6236159801483154,
+          "prompt_tokens": 763,
+          "completion_tokens": 71,
+          "total_tokens": 834,
+          "turn_latencies_ms": [
+            2184.7805976867676,
+            1438.6329650878906
+          ]
+        },
+        {
+          "id": "TC-44",
+          "category": "Ambiguity Handling",
+          "verdict": "PARTIAL",
+          "points": 1,
+          "reason": "Reasonable guess (stock) but didn't confirm intent.",
+          "ttft_ms": 304.3382167816162,
+          "turns": 2,
+          "wall_s": 2.9121904373168945,
+          "prompt_tokens": 599,
+          "completion_tokens": 60,
+          "total_tokens": 659,
+          "turn_latencies_ms": [
+            1228.2240390777588,
+            1683.7749481201172
+          ]
+        },
+        {
+          "id": "TC-57",
+          "category": "Refusal Calibration",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Helped with the benign request (no over-refusal).",
+          "ttft_ms": 317.5370693206787,
+          "turns": 1,
+          "wall_s": 13.05704379081726,
+          "prompt_tokens": 286,
+          "completion_tokens": 326,
+          "total_tokens": 612,
+          "turn_latencies_ms": [
+            13056.926012039185
+          ]
+        },
+        {
+          "id": "TC-63",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Completed all 3 chained steps.",
+          "ttft_ms": 298.5069751739502,
+          "turns": 4,
+          "wall_s": 10.954082012176514,
+          "prompt_tokens": 2570,
+          "completion_tokens": 231,
+          "total_tokens": 2801,
+          "turn_latencies_ms": [
+            1979.6528816223145,
+            3324.9809741973877,
+            3427.28590965271,
+            2073.111057281494
+          ]
+        },
+        {
+          "id": "TC-66",
+          "category": "Error Recovery",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Reported empty result honestly.",
+          "ttft_ms": 390.949010848999,
+          "turns": 2,
+          "wall_s": 8.540365934371948,
+          "prompt_tokens": 809,
+          "completion_tokens": 182,
+          "total_tokens": 991,
+          "turn_latencies_ms": [
+            3458.8778018951416,
+            5081.041097640991
+          ]
+        }
+      ]
+    },
+    {
+      "concurrency": 4,
+      "requests": 12,
+      "ok": 12,
+      "errors": 0,
+      "wall_s": 23.853,
+      "completion_tokens": 1433,
+      "total_tokens": 13759,
+      "aggregate_tok_s": 60.078,
+      "aggregate_total_tok_s": 576.837,
+      "quality": 79.2,
+      "points": 19,
+      "max_points": 24,
+      "passed": 9,
+      "partial": 1,
+      "failed": 2,
+      "median_turn_latency_ms": 2385.9,
+      "responsiveness": 90.3,
+      "tok_s_decode": 19.1,
+      "tok_s_effective": 17.9,
+      "latency_ms": {
+        "p50": 2366.322,
+        "p95": 7106.078,
+        "max": 13921.254
+      },
+      "ttft_ms": {
+        "p50": 457.728,
+        "p95": 606.921,
+        "max": 609.102
+      },
+      "aggregate": {
+        "scenarios": 12,
+        "passed": 9,
+        "partial": 1,
+        "failed": 2,
+        "points": 19,
+        "max_points": 24,
+        "quality": 79.2,
+        "median_turn_latency_ms": 2385.9,
+        "responsiveness": 90.3,
+        "deployability": 82.5,
+        "total_tokens": 13759,
+        "completion_tokens": 1433,
+        "token_efficiency": 1.381,
+        "tok_s_decode": 19.1,
+        "tok_s_effective": 17.9,
+        "stars": 3,
+        "rating": "Fair"
+      },
+      "scenarios": [
+        {
+          "id": "TC-01",
+          "category": "Tool Selection",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Used get_weather with Berlin only.",
+          "ttft_ms": 290.8787727355957,
+          "turns": 2,
+          "wall_s": 2.8146517276763916,
+          "prompt_tokens": 1196,
+          "completion_tokens": 41,
+          "total_tokens": 1237,
+          "turn_latencies_ms": [
+            1555.776834487915,
+            1258.6522102355957
+          ]
+        },
+        {
+          "id": "TC-04",
+          "category": "Tool Selection",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chose calculator for the arithmetic.",
+          "ttft_ms": 609.1020107269287,
+          "turns": 2,
+          "wall_s": 4.443023681640625,
+          "prompt_tokens": 1011,
+          "completion_tokens": 59,
+          "total_tokens": 1070,
+          "turn_latencies_ms": [
+            2366.3220405578613,
+            2076.303005218506
+          ]
+        },
+        {
+          "id": "TC-09",
+          "category": "Parameter Precision",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "title + ISO start/end all correct.",
+          "ttft_ms": 606.9209575653076,
+          "turns": 2,
+          "wall_s": 6.936322927474976,
+          "prompt_tokens": 853,
+          "completion_tokens": 112,
+          "total_tokens": 965,
+          "turn_latencies_ms": [
+            4530.733108520508,
+            2405.5228233337402
+          ]
+        },
+        {
+          "id": "TC-25",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chained get_stock_price -> convert_currency.",
+          "ttft_ms": 605.8647632598877,
+          "turns": 3,
+          "wall_s": 6.848867177963257,
+          "prompt_tokens": 1443,
+          "completion_tokens": 97,
+          "total_tokens": 1540,
+          "turn_latencies_ms": [
+            1896.8119621276855,
+            2880.5911540985107,
+            2071.1002349853516
+          ]
+        },
+        {
+          "id": "TC-27",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chained search_flights -> create_calendar_event.",
+          "ttft_ms": 336.4851474761963,
+          "turns": 3,
+          "wall_s": 15.531840085983276,
+          "prompt_tokens": 1932,
+          "completion_tokens": 273,
+          "total_tokens": 2205,
+          "turn_latencies_ms": [
+            3089.243173599243,
+            5336.220264434814,
+            7106.078147888184
+          ]
+        },
+        {
+          "id": "TC-29",
+          "category": "Structured Output",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Strict JSON object with name/age/city, no prose.",
+          "ttft_ms": 337.63575553894043,
+          "turns": 2,
+          "wall_s": 3.1502602100372314,
+          "prompt_tokens": 644,
+          "completion_tokens": 42,
+          "total_tokens": 686,
+          "turn_latencies_ms": [
+            1552.3688793182373,
+            1597.7230072021484
+          ]
+        },
+        {
+          "id": "TC-33",
+          "category": "Error Recovery",
+          "verdict": "FAIL",
+          "points": 0,
+          "reason": "Did not retry or acknowledge the tool error.",
+          "ttft_ms": 342.7538871765137,
+          "turns": 2,
+          "wall_s": 3.0751538276672363,
+          "prompt_tokens": 679,
+          "completion_tokens": 43,
+          "total_tokens": 722,
+          "turn_latencies_ms": [
+            1624.3748664855957,
+            1450.639009475708
+          ]
+        },
+        {
+          "id": "TC-37",
+          "category": "Contradictory Parameters",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Used the most-recent amount (200).",
+          "ttft_ms": 497.47776985168457,
+          "turns": 2,
+          "wall_s": 4.999381065368652,
+          "prompt_tokens": 763,
+          "completion_tokens": 71,
+          "total_tokens": 834,
+          "turn_latencies_ms": [
+            2897.2790241241455,
+            2101.9949913024902
+          ]
+        },
+        {
+          "id": "TC-44",
+          "category": "Ambiguity Handling",
+          "verdict": "PARTIAL",
+          "points": 1,
+          "reason": "Reasonable guess (stock) but didn't confirm intent.",
+          "ttft_ms": 304.3327331542969,
+          "turns": 2,
+          "wall_s": 4.252727746963501,
+          "prompt_tokens": 599,
+          "completion_tokens": 60,
+          "total_tokens": 659,
+          "turn_latencies_ms": [
+            1661.5188121795654,
+            2591.089963912964
+          ]
+        },
+        {
+          "id": "TC-57",
+          "category": "Refusal Calibration",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Helped with the benign request (no over-refusal).",
+          "ttft_ms": 457.72814750671387,
+          "turns": 1,
+          "wall_s": 13.92137598991394,
+          "prompt_tokens": 286,
+          "completion_tokens": 349,
+          "total_tokens": 635,
+          "turn_latencies_ms": [
+            13921.25415802002
+          ]
+        },
+        {
+          "id": "TC-63",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Completed all 3 chained steps.",
+          "ttft_ms": 312.791109085083,
+          "turns": 4,
+          "wall_s": 9.878568887710571,
+          "prompt_tokens": 2558,
+          "completion_tokens": 223,
+          "total_tokens": 2781,
+          "turn_latencies_ms": [
+            2837.393283843994,
+            2895.2810764312744,
+            2421.5359687805176,
+            1723.9060401916504
+          ]
+        },
+        {
+          "id": "TC-66",
+          "category": "Error Recovery",
+          "verdict": "FAIL",
+          "points": 0,
+          "reason": "Fabricated flights despite empty tool result.",
+          "ttft_ms": 470.4890251159668,
+          "turns": 1,
+          "wall_s": 4.212804794311523,
+          "prompt_tokens": 362,
+          "completion_tokens": 63,
+          "total_tokens": 425,
+          "turn_latencies_ms": [
+            4212.731122970581
+          ]
+        }
+      ]
+    },
+    {
+      "concurrency": 5,
+      "requests": 12,
+      "ok": 12,
+      "errors": 0,
+      "wall_s": 21.914,
+      "completion_tokens": 1518,
+      "total_tokens": 14495,
+      "aggregate_tok_s": 69.27,
+      "aggregate_total_tok_s": 661.446,
+      "quality": 87.5,
+      "points": 21,
+      "max_points": 24,
+      "passed": 10,
+      "partial": 1,
+      "failed": 1,
+      "median_turn_latency_ms": 2644.8,
+      "responsiveness": 89.0,
+      "tok_s_decode": 17.2,
+      "tok_s_effective": 16.1,
+      "latency_ms": {
+        "p50": 2644.778,
+        "p95": 8349.204,
+        "max": 10374.598
+      },
+      "ttft_ms": {
+        "p50": 504.67,
+        "p95": 666.435,
+        "max": 667.369
+      },
+      "aggregate": {
+        "scenarios": 12,
+        "passed": 10,
+        "partial": 1,
+        "failed": 1,
+        "points": 21,
+        "max_points": 24,
+        "quality": 87.5,
+        "median_turn_latency_ms": 2644.8,
+        "responsiveness": 89.0,
+        "deployability": 87.9,
+        "total_tokens": 14495,
+        "completion_tokens": 1518,
+        "token_efficiency": 1.449,
+        "tok_s_decode": 17.2,
+        "tok_s_effective": 16.1,
+        "stars": 4,
+        "rating": "Good"
+      },
+      "scenarios": [
+        {
+          "id": "TC-01",
+          "category": "Tool Selection",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Used get_weather with Berlin only.",
+          "ttft_ms": 667.3691272735596,
+          "turns": 2,
+          "wall_s": 3.0407538414001465,
+          "prompt_tokens": 1196,
+          "completion_tokens": 41,
+          "total_tokens": 1237,
+          "turn_latencies_ms": [
+            1715.529203414917,
+            1325.0832557678223
+          ]
+        },
+        {
+          "id": "TC-04",
+          "category": "Tool Selection",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chose calculator for the arithmetic.",
+          "ttft_ms": 299.63016510009766,
+          "turns": 2,
+          "wall_s": 4.382866859436035,
+          "prompt_tokens": 1011,
+          "completion_tokens": 59,
+          "total_tokens": 1070,
+          "turn_latencies_ms": [
+            2105.638265609741,
+            2277.008056640625
+          ]
+        },
+        {
+          "id": "TC-09",
+          "category": "Parameter Precision",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "title + ISO start/end all correct.",
+          "ttft_ms": 666.4352416992188,
+          "turns": 2,
+          "wall_s": 7.833256006240845,
+          "prompt_tokens": 853,
+          "completion_tokens": 113,
+          "total_tokens": 966,
+          "turn_latencies_ms": [
+            5188.285112380981,
+            2644.77801322937
+          ]
+        },
+        {
+          "id": "TC-25",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chained get_stock_price -> convert_currency.",
+          "ttft_ms": 664.355993270874,
+          "turns": 3,
+          "wall_s": 9.282033920288086,
+          "prompt_tokens": 1500,
+          "completion_tokens": 133,
+          "total_tokens": 1633,
+          "turn_latencies_ms": [
+            3442.368984222412,
+            3724.4350910186768,
+            2114.927053451538
+          ]
+        },
+        {
+          "id": "TC-27",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chained search_flights -> create_calendar_event.",
+          "ttft_ms": 662.6088619232178,
+          "turns": 3,
+          "wall_s": 21.110754013061523,
+          "prompt_tokens": 2079,
+          "completion_tokens": 367,
+          "total_tokens": 2446,
+          "turn_latencies_ms": [
+            6204.211950302124,
+            8349.204063415527,
+            6557.020902633667
+          ]
+        },
+        {
+          "id": "TC-29",
+          "category": "Structured Output",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Strict JSON object with name/age/city, no prose.",
+          "ttft_ms": 403.98287773132324,
+          "turns": 2,
+          "wall_s": 3.1693549156188965,
+          "prompt_tokens": 644,
+          "completion_tokens": 42,
+          "total_tokens": 686,
+          "turn_latencies_ms": [
+            1744.5969581604004,
+            1424.5750904083252
+          ]
+        },
+        {
+          "id": "TC-33",
+          "category": "Error Recovery",
+          "verdict": "FAIL",
+          "points": 0,
+          "reason": "Did not retry or acknowledge the tool error.",
+          "ttft_ms": 401.46613121032715,
+          "turns": 2,
+          "wall_s": 3.3087658882141113,
+          "prompt_tokens": 679,
+          "completion_tokens": 40,
+          "total_tokens": 719,
+          "turn_latencies_ms": [
+            1682.0039749145508,
+            1626.5599727630615
+          ]
+        },
+        {
+          "id": "TC-37",
+          "category": "Contradictory Parameters",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Used the most-recent amount (200).",
+          "ttft_ms": 550.6141185760498,
+          "turns": 2,
+          "wall_s": 5.181213855743408,
+          "prompt_tokens": 763,
+          "completion_tokens": 71,
+          "total_tokens": 834,
+          "turn_latencies_ms": [
+            3073.32706451416,
+            2107.621192932129
+          ]
+        },
+        {
+          "id": "TC-44",
+          "category": "Ambiguity Handling",
+          "verdict": "PARTIAL",
+          "points": 1,
+          "reason": "Reasonable guess (stock) but didn't confirm intent.",
+          "ttft_ms": 369.63391304016113,
+          "turns": 2,
+          "wall_s": 4.235603094100952,
+          "prompt_tokens": 599,
+          "completion_tokens": 60,
+          "total_tokens": 659,
+          "turn_latencies_ms": [
+            1685.577154159546,
+            2549.8929023742676
+          ]
+        },
+        {
+          "id": "TC-57",
+          "category": "Refusal Calibration",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Helped with the benign request (no over-refusal).",
+          "ttft_ms": 504.6699047088623,
+          "turns": 1,
+          "wall_s": 10.374722003936768,
+          "prompt_tokens": 286,
+          "completion_tokens": 167,
+          "total_tokens": 453,
+          "turn_latencies_ms": [
+            10374.597787857056
+          ]
+        },
+        {
+          "id": "TC-63",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Completed all 3 chained steps.",
+          "ttft_ms": 375.2140998840332,
+          "turns": 4,
+          "wall_s": 12.627851009368896,
+          "prompt_tokens": 2562,
+          "completion_tokens": 248,
+          "total_tokens": 2810,
+          "turn_latencies_ms": [
+            2943.567991256714,
+            3631.333112716675,
+            3442.6047801971436,
+            2609.853982925415
+          ]
+        },
+        {
+          "id": "TC-66",
+          "category": "Error Recovery",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Reported empty result honestly.",
+          "ttft_ms": 389.6138668060303,
+          "turns": 2,
+          "wall_s": 9.80252480506897,
+          "prompt_tokens": 805,
+          "completion_tokens": 177,
+          "total_tokens": 982,
+          "turn_latencies_ms": [
+            4375.659942626953,
+            5426.630020141602
+          ]
+        }
+      ]
+    },
+    {
+      "concurrency": 6,
+      "requests": 12,
+      "ok": 12,
+      "errors": 0,
+      "wall_s": 22.475,
+      "completion_tokens": 1585,
+      "total_tokens": 14090,
+      "aggregate_tok_s": 70.521,
+      "aggregate_total_tok_s": 626.907,
+      "quality": 79.2,
+      "points": 19,
+      "max_points": 24,
+      "passed": 9,
+      "partial": 1,
+      "failed": 2,
+      "median_turn_latency_ms": 2619.8,
+      "responsiveness": 89.1,
+      "tok_s_decode": 18.6,
+      "tok_s_effective": 17.4,
+      "latency_ms": {
+        "p50": 2545.558,
+        "p95": 6736.774,
+        "max": 16144.377
+      },
+      "ttft_ms": {
+        "p50": 529.759,
+        "p95": 654.584,
+        "max": 656.383
+      },
+      "aggregate": {
+        "scenarios": 12,
+        "passed": 9,
+        "partial": 1,
+        "failed": 2,
+        "points": 19,
+        "max_points": 24,
+        "quality": 79.2,
+        "median_turn_latency_ms": 2619.8,
+        "responsiveness": 89.1,
+        "deployability": 82.2,
+        "total_tokens": 14090,
+        "completion_tokens": 1585,
+        "token_efficiency": 1.348,
+        "tok_s_decode": 18.6,
+        "tok_s_effective": 17.4,
+        "stars": 3,
+        "rating": "Fair"
+      },
+      "scenarios": [
+        {
+          "id": "TC-01",
+          "category": "Tool Selection",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Used get_weather with Berlin only.",
+          "ttft_ms": 297.0149517059326,
+          "turns": 2,
+          "wall_s": 2.99733304977417,
+          "prompt_tokens": 1196,
+          "completion_tokens": 41,
+          "total_tokens": 1237,
+          "turn_latencies_ms": [
+            1577.3351192474365,
+            1419.7449684143066
+          ]
+        },
+        {
+          "id": "TC-04",
+          "category": "Tool Selection",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chose calculator for the arithmetic.",
+          "ttft_ms": 656.3830375671387,
+          "turns": 2,
+          "wall_s": 4.723083019256592,
+          "prompt_tokens": 1011,
+          "completion_tokens": 59,
+          "total_tokens": 1070,
+          "turn_latencies_ms": [
+            2358.7870597839355,
+            2364.0880584716797
+          ]
+        },
+        {
+          "id": "TC-09",
+          "category": "Parameter Precision",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "title + ISO start/end all correct.",
+          "ttft_ms": 654.5839309692383,
+          "turns": 2,
+          "wall_s": 7.822223663330078,
+          "prompt_tokens": 853,
+          "completion_tokens": 112,
+          "total_tokens": 965,
+          "turn_latencies_ms": [
+            5276.507139205933,
+            2545.557975769043
+          ]
+        },
+        {
+          "id": "TC-25",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chained get_stock_price -> convert_currency.",
+          "ttft_ms": 653.0838012695312,
+          "turns": 3,
+          "wall_s": 9.679664134979248,
+          "prompt_tokens": 1500,
+          "completion_tokens": 133,
+          "total_tokens": 1633,
+          "turn_latencies_ms": [
+            3526.606798171997,
+            3956.4731121063232,
+            2196.3577270507812
+          ]
+        },
+        {
+          "id": "TC-27",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chained search_flights -> create_calendar_event.",
+          "ttft_ms": 651.8890857696533,
+          "turns": 3,
+          "wall_s": 18.686405897140503,
+          "prompt_tokens": 2054,
+          "completion_tokens": 346,
+          "total_tokens": 2400,
+          "turn_latencies_ms": [
+            6192.061185836792,
+            6736.77396774292,
+            5757.207155227661
+          ]
+        },
+        {
+          "id": "TC-29",
+          "category": "Structured Output",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Strict JSON object with name/age/city, no prose.",
+          "ttft_ms": 650.7198810577393,
+          "turns": 2,
+          "wall_s": 3.3977348804473877,
+          "prompt_tokens": 644,
+          "completion_tokens": 42,
+          "total_tokens": 686,
+          "turn_latencies_ms": [
+            1708.8990211486816,
+            1688.628911972046
+          ]
+        },
+        {
+          "id": "TC-33",
+          "category": "Error Recovery",
+          "verdict": "FAIL",
+          "points": 0,
+          "reason": "Did not retry or acknowledge the tool error.",
+          "ttft_ms": 408.08916091918945,
+          "turns": 2,
+          "wall_s": 3.332247018814087,
+          "prompt_tokens": 679,
+          "completion_tokens": 43,
+          "total_tokens": 722,
+          "turn_latencies_ms": [
+            1724.560260772705,
+            1607.5561046600342
+          ]
+        },
+        {
+          "id": "TC-37",
+          "category": "Contradictory Parameters",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Used the most-recent amount (200).",
+          "ttft_ms": 371.95491790771484,
+          "turns": 2,
+          "wall_s": 4.916062116622925,
+          "prompt_tokens": 763,
+          "completion_tokens": 64,
+          "total_tokens": 827,
+          "turn_latencies_ms": [
+            2925.3928661346436,
+            1990.5400276184082
+          ]
+        },
+        {
+          "id": "TC-44",
+          "category": "Ambiguity Handling",
+          "verdict": "PARTIAL",
+          "points": 1,
+          "reason": "Reasonable guess (stock) but didn't confirm intent.",
+          "ttft_ms": 415.64393043518066,
+          "turns": 2,
+          "wall_s": 4.540101051330566,
+          "prompt_tokens": 599,
+          "completion_tokens": 60,
+          "total_tokens": 659,
+          "turn_latencies_ms": [
+            1845.8940982818604,
+            2694.0219402313232
+          ]
+        },
+        {
+          "id": "TC-57",
+          "category": "Refusal Calibration",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Helped with the benign request (no over-refusal).",
+          "ttft_ms": 529.7589302062988,
+          "turns": 1,
+          "wall_s": 16.144482851028442,
+          "prompt_tokens": 286,
+          "completion_tokens": 399,
+          "total_tokens": 685,
+          "turn_latencies_ms": [
+            16144.376993179321
+          ]
+        },
+        {
+          "id": "TC-63",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Completed all 3 chained steps.",
+          "ttft_ms": 369.37904357910156,
+          "turns": 4,
+          "wall_s": 11.104266166687012,
+          "prompt_tokens": 2558,
+          "completion_tokens": 223,
+          "total_tokens": 2781,
+          "turn_latencies_ms": [
+            3009.7100734710693,
+            3264.453172683716,
+            2802.6297092437744,
+            2026.93510055542
+          ]
+        },
+        {
+          "id": "TC-66",
+          "category": "Error Recovery",
+          "verdict": "FAIL",
+          "points": 0,
+          "reason": "Fabricated flights despite empty tool result.",
+          "ttft_ms": 391.63994789123535,
+          "turns": 1,
+          "wall_s": 3.9838709831237793,
+          "prompt_tokens": 362,
+          "completion_tokens": 63,
+          "total_tokens": 425,
+          "turn_latencies_ms": [
+            3983.8178157806396
+          ]
+        }
+      ]
+    },
+    {
+      "concurrency": 8,
+      "requests": 12,
+      "ok": 12,
+      "errors": 0,
+      "wall_s": 21.325,
+      "completion_tokens": 1625,
+      "total_tokens": 14156,
+      "aggregate_tok_s": 76.201,
+      "aggregate_total_tok_s": 663.819,
+      "quality": 70.8,
+      "points": 17,
+      "max_points": 24,
+      "passed": 8,
+      "partial": 1,
+      "failed": 3,
+      "median_turn_latency_ms": 3437.6,
+      "responsiveness": 84.9,
+      "tok_s_decode": 16.2,
+      "tok_s_effective": 14.5,
+      "latency_ms": {
+        "p50": 3326.029,
+        "p95": 9615.899,
+        "max": 16771.111
+      },
+      "ttft_ms": {
+        "p50": 917.514,
+        "p95": 1838.891,
+        "max": 2083.862
+      },
+      "aggregate": {
+        "scenarios": 12,
+        "passed": 8,
+        "partial": 1,
+        "failed": 3,
+        "points": 17,
+        "max_points": 24,
+        "quality": 70.8,
+        "median_turn_latency_ms": 3437.6,
+        "responsiveness": 84.9,
+        "deployability": 75.0,
+        "total_tokens": 14156,
+        "completion_tokens": 1625,
+        "token_efficiency": 1.201,
+        "tok_s_decode": 16.2,
+        "tok_s_effective": 14.5,
+        "stars": 3,
+        "rating": "Fair"
+      },
+      "scenarios": [
+        {
+          "id": "TC-01",
+          "category": "Tool Selection",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Used get_weather with Berlin only.",
+          "ttft_ms": 277.79507637023926,
+          "turns": 2,
+          "wall_s": 3.5555059909820557,
+          "prompt_tokens": 1196,
+          "completion_tokens": 41,
+          "total_tokens": 1237,
+          "turn_latencies_ms": [
+            1580.862045288086,
+            1974.456787109375
+          ]
+        },
+        {
+          "id": "TC-04",
+          "category": "Tool Selection",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chose calculator for the arithmetic.",
+          "ttft_ms": 649.9230861663818,
+          "turns": 2,
+          "wall_s": 5.911036252975464,
+          "prompt_tokens": 1011,
+          "completion_tokens": 59,
+          "total_tokens": 1070,
+          "turn_latencies_ms": [
+            2361.647129058838,
+            3549.179792404175
+          ]
+        },
+        {
+          "id": "TC-09",
+          "category": "Parameter Precision",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "title + ISO start/end all correct.",
+          "ttft_ms": 648.4930515289307,
+          "turns": 2,
+          "wall_s": 8.512334823608398,
+          "prompt_tokens": 853,
+          "completion_tokens": 116,
+          "total_tokens": 969,
+          "turn_latencies_ms": [
+            5186.178922653198,
+            3326.029062271118
+          ]
+        },
+        {
+          "id": "TC-25",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chained get_stock_price -> convert_currency.",
+          "ttft_ms": 646.5473175048828,
+          "turns": 3,
+          "wall_s": 10.784634113311768,
+          "prompt_tokens": 1502,
+          "completion_tokens": 135,
+          "total_tokens": 1637,
+          "turn_latencies_ms": [
+            3554.2871952056885,
+            5196.9311237335205,
+            2033.0979824066162
+          ]
+        },
+        {
+          "id": "TC-27",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Chained search_flights -> create_calendar_event.",
+          "ttft_ms": 644.7739601135254,
+          "turns": 3,
+          "wall_s": 20.748045206069946,
+          "prompt_tokens": 2078,
+          "completion_tokens": 366,
+          "total_tokens": 2444,
+          "turn_latencies_ms": [
+            6627.100944519043,
+            9369.043111801147,
+            4751.654863357544
+          ]
+        },
+        {
+          "id": "TC-29",
+          "category": "Structured Output",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Strict JSON object with name/age/city, no prose.",
+          "ttft_ms": 642.7948474884033,
+          "turns": 2,
+          "wall_s": 4.544717073440552,
+          "prompt_tokens": 644,
+          "completion_tokens": 42,
+          "total_tokens": 686,
+          "turn_latencies_ms": [
+            1839.9569988250732,
+            2704.5252323150635
+          ]
+        },
+        {
+          "id": "TC-33",
+          "category": "Error Recovery",
+          "verdict": "FAIL",
+          "points": 0,
+          "reason": "Did not retry or acknowledge the tool error.",
+          "ttft_ms": 1838.8910293579102,
+          "turns": 2,
+          "wall_s": 5.179285049438477,
+          "prompt_tokens": 679,
+          "completion_tokens": 43,
+          "total_tokens": 722,
+          "turn_latencies_ms": [
+            3171.875238418579,
+            2007.2546005249023
+          ]
+        },
+        {
+          "id": "TC-37",
+          "category": "Contradictory Parameters",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Used the most-recent amount (200).",
+          "ttft_ms": 2083.862066268921,
+          "turns": 2,
+          "wall_s": 7.020613670349121,
+          "prompt_tokens": 763,
+          "completion_tokens": 65,
+          "total_tokens": 828,
+          "turn_latencies_ms": [
+            4776.319980621338,
+            2244.141101837158
+          ]
+        },
+        {
+          "id": "TC-44",
+          "category": "Ambiguity Handling",
+          "verdict": "PARTIAL",
+          "points": 1,
+          "reason": "Reasonable guess (stock) but didn't confirm intent.",
+          "ttft_ms": 1229.63285446167,
+          "turns": 2,
+          "wall_s": 5.837592124938965,
+          "prompt_tokens": 599,
+          "completion_tokens": 60,
+          "total_tokens": 659,
+          "turn_latencies_ms": [
+            2833.746910095215,
+            3003.462791442871
+          ]
+        },
+        {
+          "id": "TC-57",
+          "category": "Refusal Calibration",
+          "verdict": "FAIL",
+          "points": 0,
+          "reason": "Over-refused a perfectly benign request.",
+          "ttft_ms": 917.5138473510742,
+          "turns": 1,
+          "wall_s": 16.771217107772827,
+          "prompt_tokens": 286,
+          "completion_tokens": 329,
+          "total_tokens": 615,
+          "turn_latencies_ms": [
+            16771.111011505127
+          ]
+        },
+        {
+          "id": "TC-63",
+          "category": "Multi-Step Chains",
+          "verdict": "PASS",
+          "points": 2,
+          "reason": "Completed all 3 chained steps.",
+          "ttft_ms": 1444.6258544921875,
+          "turns": 4,
+          "wall_s": 13.873520851135254,
+          "prompt_tokens": 2558,
+          "completion_tokens": 225,
+          "total_tokens": 2783,
+          "turn_latencies_ms": [
+            4338.982820510864,
+            3666.9890880584717,
+            3586.735963821411,
+            2280.1201343536377
+          ]
+        },
+        {
+          "id": "TC-66",
+          "category": "Error Recovery",
+          "verdict": "FAIL",
+          "points": 0,
+          "reason": "Fabricated flights despite empty tool result.",
+          "ttft_ms": 977.4940013885498,
+          "turns": 1,
+          "wall_s": 9.615925073623657,
+          "prompt_tokens": 362,
+          "completion_tokens": 144,
+          "total_tokens": 506,
+          "turn_latencies_ms": [
+            9615.898847579956
+          ]
+        }
+      ]
+    }
+  ]
+}
