@@ -223,10 +223,17 @@ LICENSE                                                          # MIT
 
 ## Credits
 
-- **[lukealonso](https://huggingface.co/lukealonso)** for the `MiMo-V2.5-NVFP4` quant, the MiniMax M3 TP=3 virtual-sharding method we ported, and the chthonic vLLM fork.
-- **[vLLM](https://github.com/vllm-project/vllm)** for the serving engine.
-- **[eugr/spark-vllm-docker](https://github.com/eugr/spark-vllm-docker)** for the DGX Spark vLLM container groundwork.
+This config stands on a lot of other people's work. The base loader mods are not ours; here is the full chain:
+
+- **Xiaomi MiMo team** for the base MiMo V2.5 model.
+- **[lukealonso](https://huggingface.co/lukealonso)** for the `MiMo-V2.5-NVFP4` quant, the MiniMax M3 TP=3 virtual-head sharding method we ported onto MiMo, and the chthonic vLLM fork.
+- **[eugr/spark-vllm-docker](https://github.com/eugr/spark-vllm-docker) PR #251 (a3refaat)** for the dual-Spark NVFP4 recipe and the base loader mods we build on: the Triton DiffKV attention path, MXFP8 dense dispatch, the DiffKV quantized-KV guard, the Prometheus route fix, and the per-node NCCL HCA keep.
+- **vLLM** PR **#41797** (Triton DiffKV for SM 12.1) and PR **#41905** (MiMo 2.5 MTP > 1 token), and the [vLLM project](https://github.com/vllm-project/vllm) for the serving engine.
+- **CyberTen / mclenithan** for earlier MiMo-V2.5-on-DGX-Spark recipe work.
+- The **NVIDIA Developer Forums DGX Spark threads** for the community groundwork.
 - **NVIDIA DGX Spark (GB10)** for the hardware.
+
+Our contribution on top of all of the above: extending the TP=2 NVFP4 recipe to **TP=3 with virtual-head padding**, keeping **MTP** and the full **1M-token context** alive, and the **omnimodal** bring-up + benchmarks.
 
 ---
 
