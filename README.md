@@ -1,3 +1,9 @@
+> # ⚠️ SUPERSEDED — use the current 3-Spark recipe
+> This was an earlier 3-Spark build (MTP2). The current 3-Spark recipe — **NVFP4 4-bit KV, ~10.59M-token pool** — is here:
+> ## 👉 https://github.com/tonyd2wild/MiMo-V2.5-TP3-NVFP4-KV-3xDGX-Spark
+
+---
+
 # MiMo V2.5 Omni on 3x DGX Spark
 
 The definitive recipe and full benchmark writeup for serving the **MiMo V2.5 Omni** flagship fully multimodal (text, image, video, audio) at **1,000,000 token context** with **MTP2 speculative decoding** and **TP=3 across 3x NVIDIA DGX Spark (GB10)** over RoCE, with no switch.
